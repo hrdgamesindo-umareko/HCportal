@@ -4,6 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portal Human Capital & General Affairs: semua aplikasi HCGA dalam satu pintu masuk.">
+  <meta name="theme-color" content="#A9C5B0">
+
+  <!-- Judul & pratinjau saat tautan dibagikan -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Human Capital & General Affairs">
+  <meta property="og:description" content="Semua aplikasi HCGA, satu pintu masuk. Pilih unit kerja, baca petunjuk singkat, lalu buka aplikasi yang Anda butuhkan.">
+  <meta property="og:locale" content="id_ID">
+  <meta name="twitter:card" content="summary">
+
+  <!-- Ikon tab browser (SVG, tanpa berkas tambahan) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23A9C5B0'/%3E%3Ctext x='32' y='46' font-size='38' text-anchor='middle' font-family='Arial' font-weight='700' fill='%232F3B3A'%3EH%3C/text%3E%3C/svg%3E">
+
   <title>Human Capital &amp; General Affairs</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -22,6 +34,7 @@
         Pilih unit kerja, baca petunjuk singkat, lalu buka aplikasi yang Anda butuhkan.
       </p>
       <a class="btn-primary" href="#units">Jelajahi Aplikasi</a>
+      <a class="scroll-hint" href="#units" aria-label="Gulir ke daftar unit kerja">↓</a>
     </div>
   </header>
 
@@ -48,7 +61,10 @@
     </section>
   </main>
 
-  <footer class="footer">Human Capital &amp; General Affairs</footer>
+  <footer class="footer">
+    <p class="footer-title">Human Capital &amp; General Affairs</p>
+    <p>Dikelola oleh HCGA &middot; <span id="year"></span></p>
+  </footer>
 
   <div id="loading" class="loading" aria-live="polite"><div class="spinner"></div></div>
   <div id="notif" class="notif" role="status"></div>

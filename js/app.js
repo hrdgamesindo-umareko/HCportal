@@ -175,9 +175,15 @@
     });
   }
 
+  // ---------- Kerangka kartu saat memuat (lebih tenang daripada spinner penuh layar) ----------
+  function renderSkeleton() {
+    grid.innerHTML = [0, 1, 2].map(() => '<div class="unit-card skeleton" aria-hidden="true"></div>').join('');
+  }
+
   // ---------- Init ----------
   async function init() {
-    setLoading(true);
+    renderSkeleton();
+    $('#year').textContent = new Date().getFullYear();
     try {
       const data = await API.list();
       if (!data.success) throw new Error(data.message || 'Gagal memuat');
@@ -192,9 +198,11 @@
       renderUnits();
     } catch (err) {
       console.error(err);
-      notif('Gagal memuat aplikasi. Silakan muat ulang halaman.', 'error');
-    } finally {
-      setLoading(false);
+      grid.innerHTML = '';
+      const empty = $('#empty');
+      empty.textContent = 'Daftar aplikasi belum bisa dimuat. Silakan muat ulang halaman.';
+      empty.hidden = false;
+      notif('Gagal memuat aplikasi.', 'error');
     }
 
     API.logVisit('PORTAL').catch(() => {});

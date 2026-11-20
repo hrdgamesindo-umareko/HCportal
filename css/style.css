@@ -8,7 +8,7 @@
   --sage: #A9C5B0;
   --sage-deep: #7FA58A;
   --sky: #B9D7EA;
-  --ink: #2F3B3A;
+  --ink: #3A4A47;
   --muted: #5F6F6C;
   --card: #FFFDF8;
   --shadow: 0 20px 40px rgba(60, 80, 75, 0.18);
@@ -104,6 +104,27 @@ body {
 .btn-primary:active {
   transform: translateY(6px);
   box-shadow: 0 4px 0 #8FAE98, 0 8px 16px rgba(60, 80, 75, 0.2);
+}
+
+/* Petunjuk gulir ke bawah */
+.scroll-hint {
+  display: inline-grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin-top: 2.2rem;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--sage-deep);
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 8px 16px rgba(60, 80, 75, 0.15);
+  animation: bob 2.2s ease-in-out infinite;
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(8px); }
 }
 
 /* ---------- Section ---------- */
@@ -224,6 +245,26 @@ body {
 
 .empty { text-align: center; color: var(--muted); padding: 2rem 0; }
 
+/* Kerangka kartu saat data sedang dimuat */
+.unit-card.skeleton {
+  min-height: 96px;
+  transform: none !important;
+  pointer-events: none;
+  background: linear-gradient(90deg, #FFFDF8 25%, #EFE8DC 50%, #FFFDF8 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+@keyframes shimmer {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
+}
+
+/* Indikator fokus untuk pengguna keyboard */
+:focus-visible {
+  outline: 3px solid var(--sky);
+  outline-offset: 3px;
+}
+
 /* ---------- Animasi muncul saat digulir ---------- */
 .reveal {
   opacity: 0;
@@ -277,10 +318,14 @@ body {
 /* ---------- Footer ---------- */
 .footer {
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 2.5rem 1rem 2rem;
   color: var(--muted);
   font-size: 0.9rem;
+  border-top: 1px solid rgba(60, 80, 75, 0.1);
+  margin-top: 1rem;
 }
+.footer p { margin: 0.25rem 0; }
+.footer-title { font-weight: 800; color: var(--ink); font-size: 1rem; }
 
 /* ---------- Loading & notifikasi ---------- */
 .loading {
