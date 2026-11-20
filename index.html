@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portal Human Capital & General Affairs: semua aplikasi HCGA dalam satu pintu masuk.">
+  <title>Human Capital &amp; General Affairs</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background (diatur dari sheet "Pengaturan") -->
+  <div class="bg-layer" id="bg-layer" aria-hidden="true"></div>
+  <div class="bg-tint" aria-hidden="true"></div>
+
+  <header class="hero" id="top">
+    <div class="hero-inner" id="hero-inner">
+      <p class="eyebrow">HCGA</p>
+      <h1 class="hero-title">Human Capital &amp; General Affairs</h1>
+      <p class="hero-tagline">
+        Semua aplikasi HCGA, satu pintu masuk.<br>
+        Pilih unit kerja, baca petunjuk singkat, lalu buka aplikasi yang Anda butuhkan.
+      </p>
+      <a class="btn-primary" href="#units">Jelajahi Aplikasi</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="units" class="section">
+      <div class="section-head">
+        <h2>Pilih Unit Kerja</h2>
+        <input type="search" id="search" class="search"
+               placeholder="Cari aplikasi atau unit..." aria-label="Cari aplikasi atau unit">
+      </div>
+
+      <div id="units-grid" class="units-grid"></div>
+      <p id="empty" class="empty" hidden>Aplikasi tidak ditemukan.</p>
+    </section>
+
+    <section id="stats" class="section stats">
+      <h2>Jumlah Kunjungan</h2>
+      <div class="stat-card">
+        <span class="stat-num" id="stat-today">0</span>
+        <span class="stat-label">kunjungan hari ini</span>
+      </div>
+      <h3 class="stat-sub">Per aplikasi hari ini</h3>
+      <ul id="stat-list" class="stat-list"></ul>
+    </section>
+  </main>
+
+  <footer class="footer">Human Capital &amp; General Affairs</footer>
+
+  <div id="loading" class="loading" aria-live="polite"><div class="spinner"></div></div>
+  <div id="notif" class="notif" role="status"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
